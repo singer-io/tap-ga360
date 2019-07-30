@@ -26,8 +26,9 @@
  - It supports field selection within the ga_sessions table
   
 ## Milestones
- - M1: Replication without field selection or bookmarking
+ - M1: Accepts proper config, runs replication without field selection or bookmarking
    - Emit correct schema and records, pipe into `target-stitch` using the dry run flag to confirm.
+   - Accepts params from config file except ones related to auth
  - M2: Performance test replication against real data sets (to be completed by Stitch team)
  - M3: Add bookmarking
  - M4: Add discovery and field selection
