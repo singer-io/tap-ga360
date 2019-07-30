@@ -28,9 +28,10 @@
 ## Milestones
  - M1: Replication without field selection or bookmarking
    - Emit correct schema and records, pipe into `target-stitch` using the dry run flag to confirm.
- - M2: Add bookmarking
- - M3: Add discovery and field selection
- - M4: tap-tester tests against https://bigquery.cloud.google.com/dataset/bigquery-public-data:google_analytics_sample?pli=1
+ - M2: Performance test replication against real data sets (to be completed by Stitch team)
+ - M3: Add bookmarking
+ - M4: Add discovery and field selection
+ - M5: tap-tester tests against https://bigquery.cloud.google.com/dataset/bigquery-public-data:google_analytics_sample?pli=1
   
 ## Questions
  - How can the service account JSON be passed in as params?
