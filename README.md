@@ -35,4 +35,3 @@
 ## Questions
  - How can the service account JSON be passed in as params?
  - How to deal with table version? Activate table? Probably unnecessary
- - Are any fields required as part of field selection?
