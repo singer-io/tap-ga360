@@ -32,6 +32,8 @@
  - M3: Add bookmarking
  - M4: Add discovery and field selection
  - M5: tap-tester tests against https://bigquery.cloud.google.com/dataset/bigquery-public-data:google_analytics_sample?pli=1
+   - Do a sync, generate a state file w/ a bookmark, run a second sync with the state file and confirm the bookmark was correctly applied
   
 ## Questions
  - How can the service account JSON be passed in as params?
+ - What metrics should be emitted?
