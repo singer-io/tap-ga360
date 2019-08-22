@@ -16,5 +16,8 @@ setup(
           tap-ga360=tap_ga360:main
       """,
     packages=["tap_ga360"],
+    package_data = {
+        "schemas": ["tap_ga360/schemas/*.json"]
+    },
     include_package_data=True,
 )
