@@ -258,13 +258,7 @@
           "appInfo": {
             "type": ["null", "object"],
             "properties": {
-              "id": {
-                "type": ["null", "string"]
-              },
               "appInstallerId": {
-                "type": ["null", "string"]
-              },
-              "installerId": {
                 "type": ["null", "string"]
               },
               "appVersion": {
@@ -273,16 +267,10 @@
               "landingScreenName": {
                 "type": ["null", "string"]
               },
-              "name": {
-                "type": ["null", "string"]
-              },
               "screenName": {
                 "type": ["null", "string"]
               },
               "appName": {
-                "type": ["null", "string"]
-              },
-              "version": {
                 "type": ["null", "string"]
               },
               "appId": {
@@ -314,152 +302,6 @@
                   "type": ["null", "string"]
                 },
                 "promoId": {
-                  "type": ["null", "string"]
-                }
-              }
-            }
-          },
-          "publisher_infos": {
-            "type": ["null", "array"],
-            "items": {
-              "type": ["null", "object"],
-              "properties": {
-                "adxBackfillDfpRevenueCpc": {
-                  "type": ["null", "number"]
-                },
-                "adxImpressions": {
-                  "type": ["null", "number"]
-                },
-                "adxBackfillDfpMeasurableImpressions": {
-                  "type": ["null", "number"]
-                },
-                "measurableAdsViewed": {
-                  "type": ["null", "number"]
-                },
-                "adsenseBackfillDfpClicks": {
-                  "type": ["null", "number"]
-                },
-                "dfpQueries": {
-                  "type": ["null", "number"]
-                },
-                "dfpRevenueCpc": {
-                  "type": ["null", "number"]
-                },
-                "dfpPagesViewed": {
-                  "type": ["null", "number"]
-                },
-                "dfpClicks": {
-                  "type": ["null", "number"]
-                },
-                "adxBackfillDfpViewableImpressions": {
-                  "type": ["null", "number"]
-                },
-                "adsenseBackfillDfpMatchedQueries": {
-                  "type": ["null", "number"]
-                },
-                "adxBackfillDfpClicks": {
-                  "type": ["null", "number"]
-                },
-                "adxQueries": {
-                  "type": ["null", "number"]
-                },
-                "dfpRevenueCpm": {
-                  "type": ["null", "number"]
-                },
-                "adxBackfillDfpMatchedQueries": {
-                  "type": ["null", "number"]
-                },
-                "adsenseBackfillDfpImpressions": {
-                  "type": ["null", "number"]
-                },
-                "adsPagesViewed": {
-                  "type": ["null", "number"]
-                },
-                "adxRevenue": {
-                  "type": ["null", "number"]
-                },
-                "adxPagesViewed": {
-                  "type": ["null", "number"]
-                },
-                "dfpViewableImpressions": {
-                  "type": ["null", "number"]
-                },
-                "dfpAdUnits": {
-                  "type": ["null", "string"]
-                },
-                "adsClicked": {
-                  "type": ["null", "number"]
-                },
-                "adsenseBackfillDfpRevenueCpm": {
-                  "type": ["null", "number"]
-                },
-                "adxBackfillDfpQueries": {
-                  "type": ["null", "number"]
-                },
-                "adsRevenue": {
-                  "type": ["null", "number"]
-                },
-                "adxMeasurableImpressions": {
-                  "type": ["null", "number"]
-                },
-                "adsUnitsViewed": {
-                  "type": ["null", "number"]
-                },
-                "dfpNetworkId": {
-                  "type": ["null", "string"]
-                },
-                "adxClicks": {
-                  "type": ["null", "number"]
-                },
-                "dfpMeasurableImpressions": {
-                  "type": ["null", "number"]
-                },
-                "adxBackfillDfpImpressions": {
-                  "type": ["null", "number"]
-                },
-                "adxBackfillDfpPagesViewed": {
-                  "type": ["null", "number"]
-                },
-                "adsenseBackfillDfpRevenueCpc": {
-                  "type": ["null", "number"]
-                },
-                "adsenseBackfillDfpMeasurableImpressions": {
-                  "type": ["null", "number"]
-                },
-                "adxBackfillDfpRevenueCpm": {
-                  "type": ["null", "number"]
-                },
-                "adxViewableImpressions": {
-                  "type": ["null", "number"]
-                },
-                "dfpMatchedQueries": {
-                  "type": ["null", "number"]
-                },
-                "adxMatchedQueries": {
-                  "type": ["null", "number"]
-                },
-                "adsUnitsMatched": {
-                  "type": ["null", "number"]
-                },
-                "adsenseBackfillDfpViewableImpressions": {
-                  "type": ["null", "number"]
-                },
-                "adsenseBackfillDfpPagesViewed": {
-                  "type": ["null", "number"]
-                },
-                "adsViewed": {
-                  "type": ["null", "number"]
-                },
-                "adsenseBackfillDfpQueries": {
-                  "type": ["null", "number"]
-                },
-                "viewableAdsViewed": {
-                  "type": ["null", "number"]
-                },
-                "dfpImpressions": {
-                  "type": ["null", "number"]
-                },
-                "dfpAdGroup": {
                   "type": ["null", "string"]
                 }
               }
@@ -970,9 +812,6 @@
         },
         "deviceCategory": {
           "type": ["null", "string"]
-        },
-        "isMobile": {
-          "type": ["null", "boolean"]
         },
         "flashVersion": {
           "type": ["null", "string"]
