@@ -102,7 +102,7 @@ class GaSessions(Stream):
     name = "ga_sessions"
     replication_method = "INCREMENTAL"
     replication_key = "date"
-    key_properties = ["visitorId", "visitId", "visitStartTime"]
+    key_properties = ["fullVisitorId", "visitId", "visitStartTime"]
 
 
 STREAMS = {"ga_sessions": GaSessions}

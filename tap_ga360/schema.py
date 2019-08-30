@@ -56,3 +56,16 @@ def generate_singer_schema(client, project_id, dataset_id, stream):
         "You will likely want to review the schema to ensure it's correct. Keep ",
         "an eye out for `object` types that might need to be `array` instead.",
     )
+
+
+def get_schema_fields(schema, parent="", results=[]):
+    """get set of flattened schema fields."""
+    if "object" in schema["type"]:
+        for key, val in schema["properties"].items():
+            get_schema_fields(val, parent + "." + key, results)
+    elif "array" in schema["type"]:
+        get_schema_fields(schema["items"], parent)
+
+    results.append(parent.strip("."))
+
+    return set(results)
