@@ -64,7 +64,7 @@ class Stream:
             "metadata": self.load_metadata(),
         }
 
-    def sync(self, state, metadata):
+    def sync(self, state, metadata, page_size=None):
         bookmark = self.get_bookmark(state)
 
         tables = self.client.list_tables(
@@ -78,13 +78,11 @@ class Stream:
                 if table.table_id <= new_table_id:
                     continue
 
-                query = "SELECT * FROM `{}.{}.{}`".format(
-                    self.project_id, self.dataset_id, table.table_id
-                )
+                selected_fields = self.filter_fields(to_map(metadata), table)
 
-                query_job = self.client.query(query)
-
-                for row in query_job:
+                for row in self.client.list_rows(
+                    table, page_size=page_size, selected_fields=selected_fields
+                ):
                     record = transformer.transform(
                         dict(row.items()), self.schema, to_map(metadata)
                     )
@@ -96,6 +94,16 @@ class Stream:
 
     def write_schema(self):
         write_schema(self.name, self.schema, self.key_properties)
+
+    def filter_fields(self, metadata, table):
+        """Return only the selected fields from the table schema."""
+        schema = self.client.get_table(table).schema
+
+        return [
+            field
+            for field in schema
+            if metadata.get(("properties", field.name), {}).get("selected")
+        ]
 
 
 class GaSessions(Stream):

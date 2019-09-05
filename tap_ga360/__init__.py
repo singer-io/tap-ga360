@@ -22,7 +22,7 @@ def sync(client, catalog, state, config):
             client, config["project_id"], config["dataset_id"], config["start_date"]
         )
         instance.write_schema()
-        instance.sync(state, stream.metadata)
+        instance.sync(state, stream.metadata, config.get("page_size"))
 
 
 def discover(client, config):
