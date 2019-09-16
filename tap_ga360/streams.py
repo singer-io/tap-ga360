@@ -102,7 +102,8 @@ class Stream:
         return [
             field
             for field in schema
-            if metadata.get(("properties", field.name), {}).get("selected")
+            if metadata.get(("properties", field.name), {}).get("selected") or
+            metadata.get(("properties", field.name), {}).get("inclusion") == 'automatic'
         ]
 
 
