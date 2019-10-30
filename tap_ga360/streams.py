@@ -80,8 +80,11 @@ class Stream:
 
         tables_to_extract = sorted([t for t in tables if re.fullmatch("ga_sessions_[0-9]+", t.table_id) and t.table_id > new_table_id], key=lambda t: t.table_id)
 
-        LOGGER.info("Tables left to extract: {} through {}".format(tables_to_extract[0].table_id, tables_to_extract[-1].table_id))
-        
+        if tables_to_extract:
+            LOGGER.info("Tables left to extract: {} through {}".format(tables_to_extract[0].table_id, tables_to_extract[-1].table_id))
+        else:
+            LOGGER.info("No new tables to extract")
+            
         with Transformer() as transformer:
             for table in tables_to_extract:
 

@@ -1,0 +1,2025 @@
+{
+  "streams": [
+    {
+      "tap_stream_id": "ga_sessions",
+      "metadata": [
+        {
+          "breadcrumb": [
+            "properties",
+            "visitId"
+          ],
+          "metadata": {
+            "inclusion": "automatic"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "date"
+          ],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "device"
+          ],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "userId"
+          ],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "trafficSource"
+          ],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "customDimensions"
+          ],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "channelGrouping"
+          ],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "totals"
+          ],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "socialEngagementType"
+          ],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "geoNetwork"
+          ],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "visitStartTime"
+          ],
+          "metadata": {
+            "inclusion": "automatic",
+            "selected": true
+          }
+        },
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "forced-replication-method": "INCREMENTAL",
+            "inclusion": "available",
+            "selected": true,
+            "table-key-properties": [
+              "fullVisitorId",
+              "visitId",
+              "visitStartTime"
+            ],
+            "valid-replication-keys": [
+              "date"
+            ]
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "fullVisitorId"
+          ],
+          "metadata": {
+            "inclusion": "automatic",
+            "selected": true
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "hits"
+          ],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "visitorId"
+          ],
+          "metadata": {
+            "inclusion": "available"
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "clientId"
+          ],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true
+          }
+        },
+        {
+          "breadcrumb": [
+            "properties",
+            "visitNumber"
+          ],
+          "metadata": {
+            "inclusion": "available",
+            "selected": true
+          }
+        }
+      ],
+      "stream": "ga_sessions",
+      "schema": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "visitNumber": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "hits": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "customMetrics": {
+                  "type": [
+                    "null",
+                    "array"
+                  ],
+                  "items": {
+                    "type": [
+                      "null",
+                      "object"
+                    ],
+                    "properties": {
+                      "index": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "type": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "exceptionInfo": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "exceptions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "isFatal": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "description": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "fatalExceptions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    }
+                  }
+                },
+                "promotion": {
+                  "type": [
+                    "null",
+                    "array"
+                  ],
+                  "items": {
+                    "type": [
+                      "null",
+                      "object"
+                    ],
+                    "properties": {
+                      "promoName": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "promoPosition": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "promoId": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "promoCreative": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "referer": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "latencyTracking": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "redirectionTime": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "userTimingSample": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "serverResponseTime": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "domContentLoadedTime": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "speedMetricsSample": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "domInteractiveTime": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "userTimingValue": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "userTimingVariable": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "pageLoadTime": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "domLatencyMetricsSample": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "pageDownloadTime": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "userTimingCategory": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "serverConnectionTime": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "pageLoadSample": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "userTimingLabel": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "domainLookupTime": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    }
+                  }
+                },
+                "product": {
+                  "type": [
+                    "null",
+                    "array"
+                  ],
+                  "items": {
+                    "type": [
+                      "null",
+                      "object"
+                    ],
+                    "properties": {
+                      "customMetrics": {
+                        "type": [
+                          "null",
+                          "array"
+                        ],
+                        "items": {
+                          "type": [
+                            "null",
+                            "object"
+                          ],
+                          "properties": {
+                            "index": {
+                              "type": [
+                                "null",
+                                "number"
+                              ]
+                            },
+                            "value": {
+                              "type": [
+                                "null",
+                                "number"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "productRevenue": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "isImpression": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
+                      },
+                      "localProductPrice": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "productListPosition": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "v2ProductCategory": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "productQuantity": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "productSKU": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "productListName": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "productPrice": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "v2ProductName": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "productVariant": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "customDimensions": {
+                        "type": [
+                          "null",
+                          "array"
+                        ],
+                        "items": {
+                          "type": [
+                            "null",
+                            "object"
+                          ],
+                          "properties": {
+                            "index": {
+                              "type": [
+                                "null",
+                                "number"
+                              ]
+                            },
+                            "value": {
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "productBrand": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "localProductRevenue": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "productRefundAmount": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "localProductRefundAmount": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "isClick": {
+                        "type": [
+                          "null",
+                          "boolean"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "social": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "socialInteractionTarget": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "socialNetwork": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "hasSocialSourceReferral": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "socialInteractionNetwork": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "socialInteractionAction": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "socialInteractions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "uniqueSocialInteractions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "socialInteractionNetworkAction": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "hitNumber": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "customDimensions": {
+                  "type": [
+                    "null",
+                    "array"
+                  ],
+                  "items": {
+                    "type": [
+                      "null",
+                      "object"
+                    ],
+                    "properties": {
+                      "index": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "value": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "isInteraction": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "promotionActionInfo": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "promoIsClick": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "promoIsView": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    }
+                  }
+                },
+                "publisher": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "adsUnitsViewed": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adsRevenue": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxBackfillDfpQueries": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxMatchedQueries": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adsenseBackfillDfpRevenueCpm": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adsUnitsMatched": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "dfpNetworkId": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "dfpAdGroup": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "dfpRevenueCpm": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "dfpRevenueCpc": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adsenseBackfillDfpImpressions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adsenseBackfillDfpViewableImpressions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "dfpPagesViewed": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxBackfillDfpViewableImpressions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adsClicked": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxBackfillDfpRevenueCpc": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxRevenue": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "viewableAdsViewed": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adsenseBackfillDfpPagesViewed": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "measurableAdsViewed": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxPagesViewed": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "dfpQueries": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxBackfillDfpClicks": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxImpressions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxViewableImpressions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "dfpImpressions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "dfpViewableImpressions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adsenseBackfillDfpMeasurableImpressions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adsenseBackfillDfpMatchedQueries": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adsenseBackfillDfpQueries": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adsViewed": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "dfpClicks": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxBackfillDfpImpressions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxQueries": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adsenseBackfillDfpRevenueCpc": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxBackfillDfpMeasurableImpressions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxBackfillDfpMatchedQueries": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxBackfillDfpPagesViewed": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adsPagesViewed": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "dfpMatchedQueries": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "dfpAdUnits": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "adxBackfillDfpRevenueCpm": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxClicks": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adxMeasurableImpressions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "adsenseBackfillDfpClicks": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "dfpMeasurableImpressions": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    }
+                  }
+                },
+                "isSecure": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "experiment": {
+                  "type": [
+                    "null",
+                    "array"
+                  ],
+                  "items": {
+                    "type": [
+                      "null",
+                      "object"
+                    ],
+                    "properties": {
+                      "experimentId": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "experimentVariant": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "contentInfo": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "contentDescription": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "contentGroup": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "contentGroupUniqueViews1": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "previousContentGroup4": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "contentGroup1": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "previousContentGroup1": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "contentGroup2": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "contentGroupUniqueViews4": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "contentGroupUniqueViews2": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "contentGroupUniqueViews3": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "previousContentGroup2": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "contentGroupUniqueViews5": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "contentGroup5": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "contentGroup3": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "contentGroup4": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "previousContentGroup3": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "previousContentGroup5": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "hour": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "appInfo": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "appInstallerId": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "appName": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "landingScreenName": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "exitScreenName": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "screenName": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "appId": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "screenDepth": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "appVersion": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "isExit": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "isEntrance": {
+                  "type": [
+                    "null",
+                    "boolean"
+                  ]
+                },
+                "transaction": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "transactionTax": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "currencyCode": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "localTransactionTax": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "affiliation": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "localTransactionShipping": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "transactionShipping": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "transactionRevenue": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "localTransactionRevenue": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "transactionId": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "transactionCoupon": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "time": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "eventInfo": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "eventAction": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "eventValue": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "eventLabel": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "eventCategory": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "eCommerceAction": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "option": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "step": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "action_type": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "item": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "productSku": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "currencyCode": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "productCategory": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "localItemRevenue": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "transactionId": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "itemRevenue": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "productName": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "itemQuantity": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    }
+                  }
+                },
+                "minute": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "dataSource": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "customVariables": {
+                  "type": [
+                    "null",
+                    "array"
+                  ],
+                  "items": {
+                    "type": [
+                      "null",
+                      "object"
+                    ],
+                    "properties": {
+                      "index": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      },
+                      "customVarValue": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      },
+                      "customVarName": {
+                        "type": [
+                          "null",
+                          "string"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "page": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "pagePathLevel4": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "searchCategory": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "pagePathLevel2": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "searchKeyword": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "pageTitle": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "pagePathLevel1": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "pagePath": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "pagePathLevel3": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "hostname": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "sourcePropertyInfo": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "sourcePropertyTrackingId": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "sourcePropertyDisplayName": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "refund": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "refundAmount": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    },
+                    "localRefundAmount": {
+                      "type": [
+                        "null",
+                        "number"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "clientId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "trafficSource": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "adContent": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "isTrueDirect": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "adwordsClickInfo": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "properties": {
+                  "isVideoAd": {
+                    "type": [
+                      "null",
+                      "boolean"
+                    ]
+                  },
+                  "gclId": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "slot": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "targetingCriteria": {
+                    "type": [
+                      "null",
+                      "object"
+                    ],
+                    "properties": {
+                      "boomUserlistId": {
+                        "type": [
+                          "null",
+                          "number"
+                        ]
+                      }
+                    }
+                  },
+                  "criteriaId": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "criteriaParameters": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "customerId": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "campaignId": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "adGroupId": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "page": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "creativeId": {
+                    "type": [
+                      "null",
+                      "number"
+                    ]
+                  },
+                  "adNetworkType": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
+              },
+              "keyword": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "medium": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "source": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "referralPath": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "campaignCode": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "campaign": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "date": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "format": "date-time"
+          },
+          "socialEngagementType": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "userId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "channelGrouping": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "fullVisitorId": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "visitId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "device": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "browserSize": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "screenColors": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "mobileDeviceModel": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "operatingSystemVersion": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "flashVersion": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "screenResolution": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "mobileDeviceInfo": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "javaEnabled": {
+                "type": [
+                  "null",
+                  "boolean"
+                ]
+              },
+              "mobileInputSelector": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "browserVersion": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "deviceCategory": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "language": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "operatingSystem": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "mobileDeviceBranding": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "browser": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "mobileDeviceMarketingName": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "geoNetwork": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "metro": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "longitude": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "city": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "latitude": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "networkLocation": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "country": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "networkDomain": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "subContinent": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "cityId": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "region": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "continent": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "visitorId": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "visitStartTime": {
+            "type": [
+              "null",
+              "number"
+            ]
+          },
+          "totals": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "hits": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "screenviews": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "totalTransactionRevenue": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "uniqueScreenViews": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "transactions": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "timeOnScreen": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "timeOnSite": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "pageviews": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "bounces": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "visits": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "sessionQualityDim": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "transactionRevenue": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              },
+              "newVisits": {
+                "type": [
+                  "null",
+                  "number"
+                ]
+              }
+            }
+          },
+          "customDimensions": {
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "index": {
+                  "type": [
+                    "null",
+                    "number"
+                  ]
+                },
+                "value": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
