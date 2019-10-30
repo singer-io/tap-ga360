@@ -1,5 +1,7 @@
 import json
 import os
+import re
+import singer
 
 from singer import (
     Transformer,
@@ -12,6 +14,7 @@ from singer import (
 )
 from singer.metadata import get_standard_metadata, to_map
 
+LOGGER = singer.get_logger()
 
 def get_abs_path(path):
     return os.path.join(os.path.dirname(os.path.realpath(__file__)), path)
@@ -73,16 +76,23 @@ class Stream:
 
         new_table_id = "{}_{}".format(self.name, bookmark.strftime("%Y%m%d"))
 
-        with Transformer() as transformer:
-            for table in tables:
-                if table.table_id <= new_table_id:
-                    continue
+        LOGGER.info("Extracting data from tables newer than {}, excluding intraday tables".format(new_table_id))
 
+        tables_to_extract = sorted([t for t in tables if re.fullmatch("ga_sessions_[0-9]+", t.table_id) and t.table_id > new_table_id], key=lambda t: t.table_id)
+
+        LOGGER.info("Tables left to extract: {} through {}".format(tables_to_extract[0].table_id, tables_to_extract[-1].table_id))
+        
+        with Transformer() as transformer:
+            for table in tables_to_extract:
+
+                LOGGER.info("Starting extraction from table {}".format(table.table_id))
+                
                 selected_fields = self.filter_fields(to_map(metadata), table)
 
                 for row in self.client.list_rows(
                     table, page_size=page_size, selected_fields=selected_fields
                 ):
+
                     record = transformer.transform(
                         dict(row.items()), self.schema, to_map(metadata)
                     )
@@ -91,6 +101,8 @@ class Stream:
                 date = table.table_id.replace("ga_sessions_", "")
                 self.update_bookmark(state, date)
                 write_state(state)
+
+        LOGGER.info("Extraction complete")
 
     def write_schema(self):
         write_schema(self.name, self.schema, self.key_properties)
