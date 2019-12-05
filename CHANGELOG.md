@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.0
+  * Make `ga_session_hits` its own streams to avoid `ga_sessions` records > 4 MB [#8](https://github.com/stitchdata/tap-ga360/pull/8)
+
 ## 0.0.8
   * FIX: Error when there are no new tables to extract. [#7](https://github.com/stitchdata/tap-ga360/pull/7)
 

@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name="tap-ga360",
-    version="0.0.8",
+    version="0.1.0",
     description="Singer.io tap for extracting data from Google Analytics 360 via BigQuery",
     author="Stitch",
     url="https://singer.io",
