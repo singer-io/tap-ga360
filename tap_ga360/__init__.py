@@ -3,7 +3,7 @@ import json
 import singer
 from google.cloud import bigquery
 from google.oauth2 import service_account
-from tap_ga360.streams import STREAMS
+from tap_ga360.streams import STREAMS, SUB_STREAMS
 
 LOGGER = singer.get_logger()
 
@@ -42,6 +42,16 @@ def discover(client, config):
                     config["start_date"],
                 )
                 streams.append(instance.catalog_entry())
+                if SUB_STREAMS.get(stream):
+                    sub_stream = SUB_STREAMS[stream]
+                    sub_stream_class = STREAMS[sub_stream]
+                    sub_stream_instance = sub_stream_class(
+                        client,
+                        config["project_id"],
+                        config["dataset_id"],
+                        config["start_date"],
+                    )
+                    streams.append(sub_stream_instance.catalog_entry())
                 found[stream] = True
 
     print(json.dumps({"streams": streams}, indent=2))

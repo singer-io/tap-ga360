@@ -67,46 +67,6 @@ class Stream:
             "metadata": self.load_metadata(),
         }
 
-    def sync(self, state, metadata, page_size=None):
-        bookmark = self.get_bookmark(state)
-
-        tables = self.client.list_tables(
-            "{}.{}".format(self.project_id, self.dataset_id)
-        )
-
-        new_table_id = "{}_{}".format(self.name, bookmark.strftime("%Y%m%d"))
-
-        LOGGER.info("Extracting data from tables newer than {}, excluding intraday tables".format(new_table_id))
-
-        tables_to_extract = sorted([t for t in tables if re.fullmatch("ga_sessions_[0-9]+", t.table_id) and t.table_id > new_table_id], key=lambda t: t.table_id)
-
-        if tables_to_extract:
-            LOGGER.info("Tables left to extract: {} through {}".format(tables_to_extract[0].table_id, tables_to_extract[-1].table_id))
-        else:
-            LOGGER.info("No new tables to extract")
-            
-        with Transformer() as transformer:
-            for table in tables_to_extract:
-
-                LOGGER.info("Starting extraction from table {}".format(table.table_id))
-                
-                selected_fields = self.filter_fields(to_map(metadata), table)
-
-                for row in self.client.list_rows(
-                    table, page_size=page_size, selected_fields=selected_fields
-                ):
-
-                    record = transformer.transform(
-                        dict(row.items()), self.schema, to_map(metadata)
-                    )
-                    write_record("ga_sessions", record, time_extracted=utils.now())
-
-                date = table.table_id.replace("ga_sessions_", "")
-                self.update_bookmark(state, date)
-                write_state(state)
-
-        LOGGER.info("Extraction complete")
-
     def write_schema(self):
         write_schema(self.name, self.schema, self.key_properties)
 
@@ -121,6 +81,26 @@ class Stream:
             metadata.get(("properties", field.name), {}).get("inclusion") == 'automatic'
         ]
 
+    def get_tables_to_extract(self, name, bookmark):
+
+        tables = self.client.list_tables(
+            "{}.{}".format(self.project_id, self.dataset_id)
+        )
+
+        new_table_id = "{}_{}".format(name, bookmark.strftime("%Y%m%d"))
+
+        LOGGER.info("Extracting data from tables newer than {}, excluding intraday tables".format(new_table_id))
+
+        tables_to_extract = sorted([t for t in tables if re.fullmatch("ga_sessions_[0-9]+", t.table_id) and t.table_id > new_table_id], key=lambda t: t.table_id)
+
+        if tables_to_extract:
+            LOGGER.info("Tables left to extract: {} through {}".format(tables_to_extract[0].table_id, tables_to_extract[-1].table_id))
+        else:
+            LOGGER.info("No new tables to extract")
+
+        for table in tables_to_extract:
+            yield table
+
 
 class GaSessions(Stream):
     name = "ga_sessions"
@@ -128,5 +108,74 @@ class GaSessions(Stream):
     replication_key = "date"
     key_properties = ["fullVisitorId", "visitId", "visitStartTime"]
 
+    def sync(self, state, metadata, page_size=None):
+        bookmark = self.get_bookmark(state)
+        with Transformer() as transformer:
+            for table in self.get_tables_to_extract(self.name, bookmark):
+                LOGGER.info("Starting extraction from table {}".format(table.table_id))
 
-STREAMS = {"ga_sessions": GaSessions}
+                selected_fields = self.filter_fields(to_map(metadata), table)
+                for row in self.client.list_rows(
+                    table, page_size=page_size, selected_fields=selected_fields
+                ):
+                    record = transformer.transform(
+                        dict(row.items()), self.schema, to_map(metadata)
+                    )
+                    write_record("ga_sessions", record, time_extracted=utils.now())
+
+                date = table.table_id.replace("ga_sessions_", "")
+                self.update_bookmark(state, date)
+                write_state(state)
+
+        LOGGER.info("Extraction complete")
+
+
+class GaSessionHits(Stream):
+    name = "ga_session_hits"
+    replication_method = "INCREMENTAL"
+    replication_key = "date"
+    key_properties = ["fullVisitorId", "visitId", "visitStartTime", "hitNumber"]
+
+    def sync(self, state, metadata, page_size=None):
+        bookmark = self.get_bookmark(state)
+        with Transformer() as transformer:
+            for table in self.get_tables_to_extract("ga_sessions", bookmark):
+
+                LOGGER.info("Starting extraction from table {}".format(table.table_id))
+
+                # hits is a top level field of sessions so synthesize
+                # session metadata
+                hits_props = ['hits', "fullVisitorId", "visitId", "visitStartTime"]
+                hits_metadata = []
+                for hits_prop in hits_props:
+                    hits_metadata.append({
+                        'breadcrumb': ['properties', hits_prop],
+                        'metadata': {'inclusion': 'automatic', 'selected': True}
+                    })
+                selected_fields = self.filter_fields(to_map(hits_metadata), table)
+
+                for row in self.client.list_rows(
+                    table, page_size=page_size, selected_fields=selected_fields
+                ):
+                    session = dict(row.items())
+                    session_key_props = {k: session[k] for k in ["fullVisitorId", "visitId", "visitStartTime"]}
+                    if session.get('hits') and len(session['hits']) > 0:
+                        for session_hit in session['hits']:
+                            session_hit_record = {**session_hit, **session_key_props}
+                            record = transformer.transform(
+                                session_hit_record, self.schema, to_map(metadata)
+                            )
+
+                            write_record("ga_session_hits", record, time_extracted=utils.now())
+
+                date = table.table_id.replace("ga_sessions_", "")
+                self.update_bookmark(state, date)
+                write_state(state)
+
+        LOGGER.info("Extraction complete")
+
+
+STREAMS = {"ga_sessions": GaSessions,
+           "ga_session_hits": GaSessionHits}
+
+SUB_STREAMS = {"ga_sessions": "ga_session_hits"}
