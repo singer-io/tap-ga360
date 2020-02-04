@@ -152,11 +152,17 @@ class GaSessionHits(Stream):
                         'breadcrumb': ['properties', hits_prop],
                         'metadata': {'inclusion': 'automatic', 'selected': True}
                     })
-                selected_fields = self.filter_fields(to_map(hits_metadata), table)
 
-                for row in self.client.list_rows(
-                    table, page_size=page_size, selected_fields=selected_fields
-                ):
+                table_name = table.full_table_id.replace(':', '.')
+                fields = ', '.join(hits_props)
+                query = 'SELECT {} FROM `{}`'.format(fields, table_name)
+
+                LOGGER.info("Querying for ga_session_hits using query: %s", query)
+
+                job = self.client.query(query)
+                row_iterator = job.result()
+
+                for row in row_iterator:
                     session = dict(row.items())
                     session_key_props = {k: session[k] for k in ["fullVisitorId", "visitId", "visitStartTime"]}
                     if session.get('hits') and len(session['hits']) > 0:
