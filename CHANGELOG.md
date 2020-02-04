@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.1
+  * Rework the `ga_session_hits` stream to query via query string in order to get all results
+
 ## 0.1.0
   * Make `ga_session_hits` its own streams to avoid `ga_sessions` records > 4 MB [#8](https://github.com/stitchdata/tap-ga360/pull/8)
 
