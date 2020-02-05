@@ -11,6 +11,12 @@ setup(
     classifiers=["Programming Language :: Python :: 3 :: Only"],
     py_modules=["tap_ga360"],
     install_requires=["google-cloud-bigquery==1.17.0", "singer-python==5.8"],
+    extras_require={
+        'dev': [
+            'pylint',
+            'ipdb'
+        ]
+      },
     entry_points="""
           [console_scripts]
           tap-ga360=tap_ga360:main

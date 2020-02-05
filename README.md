@@ -38,3 +38,5 @@
 ## Questions
  - How can the service account JSON be passed in as params?
  - What metrics should be emitted?
+
+Copyright &copy; 2020 Stitch

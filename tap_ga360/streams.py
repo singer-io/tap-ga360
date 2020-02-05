@@ -89,12 +89,12 @@ class Stream:
 
         new_table_id = "{}_{}".format(name, bookmark.strftime("%Y%m%d"))
 
-        LOGGER.info("Extracting data from tables newer than {}, excluding intraday tables".format(new_table_id))
+        LOGGER.info("Extracting data from tables newer than %s, excluding intraday tables", new_table_id)
 
         tables_to_extract = sorted([t for t in tables if re.fullmatch("ga_sessions_[0-9]+", t.table_id) and t.table_id > new_table_id], key=lambda t: t.table_id)
 
         if tables_to_extract:
-            LOGGER.info("Tables left to extract: {} through {}".format(tables_to_extract[0].table_id, tables_to_extract[-1].table_id))
+            LOGGER.info("Tables left to extract: %s through %s", tables_to_extract[0].table_id, tables_to_extract[-1].table_id)
         else:
             LOGGER.info("No new tables to extract")
 
@@ -112,12 +112,10 @@ class GaSessions(Stream):
         bookmark = self.get_bookmark(state)
         with Transformer() as transformer:
             for table in self.get_tables_to_extract(self.name, bookmark):
-                LOGGER.info("Starting extraction from table {}".format(table.table_id))
+                LOGGER.info("Starting extraction from table %s", table.table_id)
 
                 selected_fields = self.filter_fields(to_map(metadata), table)
-                for row in self.client.list_rows(
-                    table, page_size=page_size, selected_fields=selected_fields
-                ):
+                for row in self.client.list_rows(table, page_size=page_size, selected_fields=selected_fields):
                     record = transformer.transform(
                         dict(row.items()), self.schema, to_map(metadata)
                     )
@@ -136,12 +134,12 @@ class GaSessionHits(Stream):
     replication_key = "date"
     key_properties = ["fullVisitorId", "visitId", "visitStartTime", "hitNumber"]
 
-    def sync(self, state, metadata, page_size=None):
+    def sync(self, state, metadata, page_size=None):# pylint: disable=unused-argument
         bookmark = self.get_bookmark(state)
         with Transformer() as transformer:
             for table in self.get_tables_to_extract("ga_sessions", bookmark):
 
-                LOGGER.info("Starting extraction from table {}".format(table.table_id))
+                LOGGER.info("Starting extraction from table %s", table.table_id)
 
                 # hits is a top level field of sessions so synthesize
                 # session metadata

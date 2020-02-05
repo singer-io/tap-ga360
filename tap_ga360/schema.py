@@ -45,7 +45,7 @@ def generate_singer_schema(client, project_id, dataset_id, stream):
         # just fetch first table to get the schema
         break
 
-    schema = get_table_schema(client, project_id, dataset_id, table.table_id)
+    schema = get_table_schema(client, project_id, dataset_id, table.table_id)# pylint: disable=undefined-loop-variable
     singer_schema = convert_schema(schema)
     parent_dir = os.path.dirname(__file__)
     fname = "schemas/{}.json".format(stream)
@@ -58,7 +58,7 @@ def generate_singer_schema(client, project_id, dataset_id, stream):
     )
 
 
-def get_schema_fields(schema, parent="", results=[]):
+def get_schema_fields(schema, parent="", results=[]):# pylint: disable=dangerous-default-value
     """get set of flattened schema fields."""
     if "object" in schema["type"]:
         for key, val in schema["properties"].items():
