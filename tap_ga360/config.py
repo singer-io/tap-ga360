@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 def get_args():
-    args = ArgumentParser()
+    args = ArgumentParser()# pylint: disable=redefined-outer-name
     args.add_argument("--config", help="Path to configuration json file to modify")
     args.add_argument(
         "--creds", help="Path to Google service account credentials json file"
