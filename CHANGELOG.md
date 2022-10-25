@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.0
+  * Update singer-python version and google-cloud-bigquery version [#3](https://github.com/singer-io/tap-ga360/pull/3)
+
 ## 0.1.1
   * Rework the `ga_session_hits` stream to query via query string in order to get all results
 
