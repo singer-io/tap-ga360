@@ -16,7 +16,7 @@ jobs:
           name: 'pylint'
           command: |
             source /usr/local/share/virtualenvs/tap-ga360/bin/activate
-            make test
+            pylint tap_ga360 --disable missing-function-docstring,missing-class-docstring,missing-module-docstring,too-many-locals,invalid-name,line-too-long,consider-using-f-string,unspecified-encoding,use-yield-from
 
 workflows:
   version: 2
