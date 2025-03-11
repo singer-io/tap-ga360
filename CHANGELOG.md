@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.2
+  * Update google-cloud-bigquery version [#7](https://github.com/singer-io/tap-ga360/pull/7)
+
 ## 0.2.1
   * Pinnumpy version to avoid compatibility errors [#6](https://github.com/singer-io/tap-ga360/pull/6)
 
