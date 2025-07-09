@@ -10,7 +10,7 @@ setup(
     url="https://singer.io",
     classifiers=["Programming Language :: Python :: 3 :: Only"],
     py_modules=["tap_ga360"],
-    install_requires=["google-cloud-bigquery==3.30.0", "singer-python==5.12.2"],
+    install_requires=["google-cloud-bigquery==3.30.0", "singer-python==5.13.2"],
     extras_require={
         'dev': [
             'pylint',
