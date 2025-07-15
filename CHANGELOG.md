@@ -1,7 +1,7 @@
 # Changelog
 
 ## 0.2.3
-  * Bump dependency versions for twistlock compliance [#9](https://github.com/singer-io/tap-ga360/pull/9)
+  * Bump dependency versions for twistlock compliance [#8](https://github.com/singer-io/tap-ga360/pull/8)
 
 ## 0.2.2
   * Update google-cloud-bigquery version [#7](https://github.com/singer-io/tap-ga360/pull/7)
