@@ -4,13 +4,16 @@ from setuptools import setup
 
 setup(
     name="tap-ga360",
-    version="0.2.3",
+    version="0.2.4",
     description="Singer.io tap for extracting data from Google Analytics 360 via BigQuery",
     author="Stitch",
     url="https://singer.io",
     classifiers=["Programming Language :: Python :: 3 :: Only"],
     py_modules=["tap_ga360"],
-    install_requires=["google-cloud-bigquery==3.30.0", "singer-python==5.13.2"],
+    install_requires=[
+        "google-cloud-bigquery==3.42.3",
+        "singer-python==6.8.0"
+    ],
     extras_require={
         'dev': [
             'pylint',
