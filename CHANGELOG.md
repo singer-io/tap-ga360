@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.4
+  * Upgrade python version to 3.12 [#12](https://github.com/singer-io/tap-ga360/pull/12)
+  * Add unittests and integration tests
+  * Upgrade dependency versions
+
 ## 0.2.3
   * Bump dependency versions for twistlock compliance [#8](https://github.com/singer-io/tap-ga360/pull/8)
 
